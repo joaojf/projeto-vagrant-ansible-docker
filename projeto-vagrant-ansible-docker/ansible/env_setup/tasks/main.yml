@@ -1,0 +1,18 @@
+---
+# tasks file for env_setup
+- name: Create sysadm user
+  user:
+    name: "{{ user }}"
+    comment: "New System Administrator"
+    home: "/home/sysadm"
+    shell: /bin/bash
+
+- name: Set new hostname
+  hostname:
+    name: "{{ hostt }}"
+
+- name: Add user to docker group
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes

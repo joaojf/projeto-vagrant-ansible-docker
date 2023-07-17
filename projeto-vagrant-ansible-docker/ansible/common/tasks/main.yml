@@ -1,0 +1,38 @@
+---
+# tasks file for teste_docker
+- name: Install required system packages
+  apt:
+    update_cache: yes
+    state: latest
+    name: "{{ packages }}"
+
+- name: Update pip
+  command: pip install --upgrade pip
+
+- name: Install Docker Python Library
+  pip:
+    state: latest
+    name: docker
+    
+- name: Add Docker GPG apt key
+  apt_key:
+    url: "{{ gpg }}"
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: "{{ ubuntu_bionic }}"
+    state: present
+
+- name: Update apt and install docker packages
+  apt:
+    update_cache: yes
+    state: latest
+    name: "{{ docker_packages }}"
+
+- name: Check docker service status
+  systemd:
+    name: docker
+    state: started
+  register: docker_status
+  ignore_errors: true

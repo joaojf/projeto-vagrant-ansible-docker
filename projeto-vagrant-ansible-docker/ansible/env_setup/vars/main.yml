@@ -1,0 +1,4 @@
+---
+# vars file for env_setup
+user: sysadm
+hostt: ubuntu

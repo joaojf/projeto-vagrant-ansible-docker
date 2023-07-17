@@ -1,0 +1,9 @@
+---
+# tasks file for container
+- name: Ru Docker Container
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ container_image }}"
+    state: started
+    ports:
+      - "{{ portt }}"

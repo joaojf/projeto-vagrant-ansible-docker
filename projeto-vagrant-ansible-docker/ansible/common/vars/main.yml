@@ -1,0 +1,19 @@
+---
+# vars file for teste_docker
+packages:
+  - build-essential
+  - ca-certificates
+  - curl
+  - gnupg
+  - python3-pip
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+ubuntu_bionic: deb https://download.docker.com/linux/ubuntu bionic stable
+
+gpg: https://download.docker.com/linux/ubuntu/gpg

@@ -1,0 +1,5 @@
+---
+# vars file for container
+container_name: nginx
+container_image: nginx:latest
+portt: 8080:80
